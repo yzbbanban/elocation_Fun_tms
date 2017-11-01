@@ -1,0 +1,16 @@
+{ 
+"code":0,
+"message":"success",
+"result":[
+			{
+			"city":"青岛"
+			},
+			{
+			"city":"上海"
+			},
+			{
+			"city":"南京"
+			}
+		]
+}
+

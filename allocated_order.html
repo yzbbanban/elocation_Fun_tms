@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>已分配订单</title>
+		<link rel="stylesheet" type="text/css" href="css/funTms.css" />
+		<link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/allocated_order.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/qrcode/qrcode.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cookie_util.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">转配订单</h1>
+		</header>
+		<!--
+            	作者：yzbbanban@live.com
+            	时间：2017-09-07
+            	描述：列表
+            -->
+		<div class="head_background" style="margin-top:50px;margin-bottom:45%;z-index: 0;">
+			<div id="allocated_order" class="weui-cells" style="font-size: 10px;z-index: 0;">
+
+			</div>
+
+		</div>
+
+		<!--
+            	作者：yzbbanban@live.com
+            	时间：2017-09-07
+            	描述：二维码
+            -->
+
+		<div class="weui-footer weui-footer_fixed-bottom body_background">
+			<div class="weui-flex">
+				<div class="weui-flex__item" style="margin:0 auto;">
+					<div id="order_bottom" class="order_foot_left">
+						<img src="img/loc.png" width="20px" alt="" class="order_foot_img">
+						<span id="allocated_order_loc_count" class="order_foot_p" id="orde_count"></span>
+					</div>
+				</div>
+				<div class="weui-flex__item">
+					<div id="qrcode" style="width:100px; height:100px; margin-top:5px;margin: 0 auto;"></div>
+				</div>
+				<div class="weui-flex__item">
+					<div id="order_bottom" class="order_foot_right">
+						<img src="img/coun.png" alt="" class="order_foot_img">
+						<span id="allocated_order_loc_box_count" class="order_foot_p" id="orde_count"></span>
+					</div>
+				</div>
+			</div>
+			<a class="" href="javascript:;">
+				<div id="order_bottom" class="order_foot_num">
+					<img src="img/order.png" alt="" class="order_foot_img">
+					<p class="order_foot_p" id="transfer_order">转运单号</p>
+				</div>
+			</a>
+		</div>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init()
+			mui.plusReady(function() {
+				var old_back = mui.back;
+				mui.back = function() {
+					//alert(1)
+					javascript: history.back(-1);
+
+				}
+			});
+		</script>
+	</body>
+
+</html>

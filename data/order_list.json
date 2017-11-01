@@ -1,0 +1,66 @@
+{ 
+"code":0,
+"message":"success",
+"result":[
+	{
+	"id":123,
+	"cityId":1,
+	"city":"青岛",
+	"orderNum":"Cx54684984646",
+	"locId":11,
+	"locName":"青岛美发有限公司",
+	"loc":"青岛XXX",
+	"count":9
+	},
+	{
+	"id":124,
+	"cityId":2,
+	"city":"上海",
+	"orderNum":"Cx54684984647",
+	"locId":12,
+	"locName":"上海美发有限公司",
+	"loc":"上海XXX",
+	"count":8
+	},
+	{
+	"id":125,
+	"cityId":3,
+	"city":"南京",
+	"orderNum":"Cx54684984648",
+	"locId":13,
+	"locName":"南京美发有限公司",
+	"loc":"南京XXX",
+	"count":8
+	},
+	{
+	"id":126,
+	"cityId":1,
+	"city":"青岛",
+	"orderNum":"Cx54684984649",
+	"locId":14,
+	"locName":"青岛啤酒有限公司",
+	"loc":"青岛XXX",
+	"count":9
+	},
+	{
+	"id":127,
+	"cityId":3,
+	"city":"南京",
+	"orderNum":"Cx54684984650",
+	"locId":15,
+	"locName":"南京啤酒有限公司",
+	"loc":"南京XXX",
+	"count":5
+	},
+	{
+	"id":128,
+	"cityId":2,
+	"city":"上海",
+	"orderNum":"Cx54684984651",
+	"locId":12,
+	"locName":"上海美发有限公司",
+	"loc":"上海XXX",
+	"count":11
+	}
+	]
+}

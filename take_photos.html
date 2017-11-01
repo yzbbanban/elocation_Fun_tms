@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>拍照上传</title>
+		<link rel="stylesheet" href="css/weui.min.css" />
+		<link rel="stylesheet" href="css/funTms.css" />
+		<link rel="stylesheet" href="css/top_bottom.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/cookie_util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/takePhoto.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">完成</h1>
+		</header>
+
+		<div class="weui-gallery" id="gallery">
+			<img class="weui-gallery__img" style="width: 100%; height: auto;max-width: 100%; display: block;" id="galleryImg" />
+			<div class="weui-gallery__opr">
+				<a href="javascript:" class="weui-gallery__del">
+					<i class="weui-icon-delete weui-icon_gallery-delete"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="weui-cells weui-cells_form" style="margin-top: 50px;">
+			<div class="weui-cell">
+				<div class="weui-cell__bd">
+					<div class="weui-uploader">
+						<div class="weui-uploader__hd">
+							<p class="weui-uploader__title">图片上传</p>
+							<div class="weui-uploader__info">0/1</div>
+						</div>
+						<div class="weui-uploader__bd">
+							<ul class="weui-uploader__files" id="uploaderFiles">
+							</ul>
+							<div class="weui-uploader__input-box" id="text1">
+								<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="exception_reason" class="weui-cells weui-cells_form" >
+			<div class="weui-cell">
+				<div class="weui-cell__bd">
+					<textarea id="textArea1" class="weui-textarea" placeholder="请输入" rows="3"></textarea>
+					<div id="textCount" class="weui-textarea-counter"><span>0</span>/50</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				$("#textArea1").keydown(function() {
+					var curLength = $("#textArea1").val().length;
+					if(curLength >= 50) {
+						var num = $("#textArea1").val().substr(0, 4);
+						$("#textArea1").val(num);
+						alert("超过字数限制，多出的字将被截断！");
+					} else {
+						$("#textCount").text($("#textArea1").val().length + 1 + "/50");
+					}
+				})
+			});
+		</script>
+		<input type="hidden" id="orderStatus" />
+		<script type="text/javascript">
+			$(function() {
+				var tmpl = '<li class="weui-uploader__file"><img id="cImg" alt=""  width="77px" height="77px" src="#url#"/></li>',
+					$gallery = $("#gallery"),
+					$galleryImg = $("#galleryImg"),
+					$uploaderInput = $("#uploaderInput"),
+					$uploaderFiles = $("#uploaderFiles");
+
+				$uploaderInput.on("change", function(e) {
+					var src, url = window.URL || window.webkitURL || window.mozURL,
+						files = e.target.files;
+					for(var i = 0, len = files.length; i < len; ++i) {
+						var file = files[i];
+
+						if(url) {
+							src = url.createObjectURL(file);
+						} else {
+							src = e.target.result;
+						}
+						$("#text1").hide();
+						$uploaderFiles.append($(tmpl.replace('#url#', src)));
+					}
+				});
+				$uploaderFiles.on("click", "img", function() {
+					$galleryImg.attr("src", this.getAttribute("src"));
+					$gallery.fadeIn(100);
+				});
+				$gallery.on("click", function() {
+
+					$gallery.fadeOut(100);
+				});
+			});
+		</script>
+		<div class="weui-tabbar weui-footer weui-footer_fixed-bottom">
+			<div style="margin: 10px auto;">
+				<a href="#" class="weui-btn weui-btn_primary" onclick="Normal_Sign()" id="completeOrder">正常结案</a>
+			</div>
+			<div style="margin: 10px auto;">
+				<a href="#" class="weui-btn weui-btn_primary" style="visibility:hidden" onclick="AbNormal_Sign()" id="errorOrder">异常结案</a>
+			</div>
+		</div>
+		<div class="weui-tabbar weui-footer weui-footer_fixed-bottom">
+			<div style="margin: 10px auto;">
+				<a href="#" id="uploadData" class="weui-btn weui-btn_primary">确认</a>
+			</div>
+		</div>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init()
+			mui.plusReady(function() {
+				var old_back = mui.back;
+				mui.back = function() {
+					//alert(1)
+					javascript :history.back(-1);
+
+				}
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>订单详情</title>
+		<link rel="stylesheet" type="text/css" href="css/funTms.css" />
+		<link rel="stylesheet" type="text/css" href="css/weui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cookie_util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/getOrderDetail.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body class="body_background">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">详情</h1>
+		</header>
+		<!--
+            	作者：yzbbanban@live.com
+            	时间：2017-09-07
+            	描述：列表
+            -->
+		<div class="head_background" style="margin-top: 50px;">
+			<div class="weui-panel__bd" id="order_detial" style="font-size: 10px;">
+
+			</div>
+		</div>
+		<!--
+        	作者：yzbbanban@live.com
+        	时间：2017-09-07
+        	描述：订单列表
+       -->
+		<div class="weui-cells" id="order_detial_list" style="margin-top: 20px;">
+
+		</div>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init()
+			mui.plusReady(function() {
+				var old_back = mui.back;
+				mui.back = function() {
+					//alert(1)
+					javascript :history.back(-1);
+
+				}
+			});
+		</script>
+	</body>
+
+</html>

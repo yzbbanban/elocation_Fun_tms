@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>订单列表</title>
+		<link rel="stylesheet" href="css/weui.min.css" />
+		<link rel="stylesheet" href="css/top_bottom.css" />
+		<link rel="stylesheet" href="css/funTms.css" />
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/getOrderList.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cookie_util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/getCityList.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/orderDiversion.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/completeOrder.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#city_list").hide();
+				$("#city").click(getCity);
+				$("#diction").click(getDiction);
+				$("#set_city").click(setCityList);
+				$("#order_diversion").click(orderDiversion);
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="page" style="position: absolute; top: 0;right: 0;bottom: 0;left: 0;">
+			<div class="page__bd" style="height: 100%;">
+				<div class="weui-tab">
+					<div class="weui-navbar">
+						<div class="weui-navbar__item" id="city">
+							城市
+							<img src="img/bottomore.png" style="margin-top: 5px;" height="15px" width="15px" alt="">
+						</div>
+						<div class="weui-navbar__item" id="diction">
+							配送点
+							<img src="img/bottomore.png" style="margin-top: 5px;" height="15px" width="15px" alt="">
+						</div>
+					</div>
+
+					<div class="weui-tab__panel">
+						<!--
+                        	作者：yzbbanban@live.com
+                        	时间：2017-09-18
+                        	描述：弹窗
+                        -->
+						<div id="loadingToast" style="display:none;">
+							<div class="weui-mask_transparent"></div>
+							<div class="weui-toast">
+								<i class="weui-loading weui-icon_toast"></i>
+								<p class="weui-toast__content">数据加载中</p>
+							</div>
+						</div>
+						<!--
+                        	作者：yzbbanban@live.com
+                        	时间：2017-09-18
+                        	描述：订单列表
+                        -->
+						<div id="order_list">
+							<div class="weui-cells__title" id="check_all_order">全选</div>
+							<div id="order_list_detail" style="margin-bottom: 20%;z-index: 0;"></div>
+							<div class="weui-tabbar weui-footer weui-footer_fixed-bottom">
+
+								<div style="margin: 10px auto;">
+									<a href="#" class="weui-btn weui-btn_primary" id="showOrderDialog">完成配送</a>
+								</div>
+								<div style="margin: 10px auto;">
+									<a href="#" class="weui-btn weui-btn_primary" id="order_diversion">订单转配</a>
+								</div>
+
+							</div>
+						</div>
+						<div id="city_list" class="page">
+							<div class="weui-cells__title" id="check_all_city">全选</div>
+							<div id="city_list_detail" class="weui-cells weui-cells_checkbox" style="margin-bottom: 20%;z-index: 0;">
+
+							</div>
+
+							<div class="weui-tabbar weui-footer weui-footer_fixed-bottom">
+								<div style="margin: 10px auto;">
+									<a href="#" id="set_city" class="weui-btn weui-btn_primary">确认</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div id="dialogs">
+			<!--BEGIN dialog1-->
+			<div class="js_dialog" id="iosDialog1" style="display: none;">
+				<div class="weui-mask"></div>
+				<div class="weui-dialog" style="border-radius: 10px;">
+					<div class="weui-dialog__hd" style="padding: 15px;border-bottom: 1px #e6e6e6 solid;"><strong class="weui-dialog__title" style="margin-right: -25px;">结案</strong>
+						<div id='close_dialog' style="float:right;"><img src='img/close.png'></div>
+					</div>
+					<div style="width: 80%;margin: 0 auto;">
+						<a href="#" id="completeOrder" class="weui-dialog__btn weui-dialog__btn_default" style="color: #0bbfa2;">正常结案</a>
+						<p style="background: #e6e6e6;height: 1px;width: 100%;"></p>
+						<a href="#" id="errorOrder" class="weui-dialog__btn weui-dialog__btn_default">异常结案</a>
+					</div>
+
+				</div>
+			</div>
+			<!--END dialog1-->
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				var $iosDialog1 = $('#iosDialog1');
+				$('#dialogs').on('click', '.weui-dialog__btn', function() {
+					$(this).parents('.js_dialog').fadeOut(200);
+				});
+				$('#showOrderDialog').on('click', function() {
+					//未选择
+					if(0 == $("input:checked").length) {
+						alert("请选择订单");
+						return;
+					}
+					$iosDialog1.fadeIn(200);
+				});
+			});
+		</script>
+		<!--关闭dialog-->
+		<script>
+			$(function() {
+				var $close_dialog = $('#close_dialog');
+				$("#close_dialog").click(function() {
+					$('#iosDialog1').css("display", "none");
+				});
+			})
+		</script>
+		
+	</body>
+
+</html>

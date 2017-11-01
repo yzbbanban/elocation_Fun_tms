@@ -1,0 +1,93 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"order_List.html"
+		],
+		"refer": [
+			"order_detail.html",
+			"order_List.html"
+		]
+	},
+	"order_List.html": {
+		"resources": [
+			"img/bottomore.png",
+			"css/funTms.css",
+			"img/close.png",
+			"css/weui.min.css",
+			"css/top_bottom.css",
+			"js/mui.min.js",
+			"js/completeOrder.js",
+			"js/jquery.min.js",
+			"js/orderDiversion.js",
+			"js/cookie_util.js",
+			"js/getCityList.js",
+			"js/getOrderList.js",
+			"img/location.png",
+			"img/more.png",
+			"img/count.png",
+			"img/order.png",
+			"img/Blockbox.png",
+			"img/Selectionbox.png",
+			"order_detail.html"
+		],
+		"refer": [
+			"order_detail.html"
+		]
+	},
+	"order_detail.html": {
+		"resources": [
+			"css/funTms.css",
+			"css/weui.min.css",
+			"js/getOrderDetail.js",
+			"img/detail_count.png",
+			"img/goods.png",
+			"img/order_loc.png",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/cookie_util.js",
+			"order_List.html"
+		],
+		"refer": [
+			"order_List.html"
+		]
+	},
+	"allocated_order.html": {
+		"resources": [
+			"js/allocated_order.js",
+			"img/loc.png",
+			"js/qrcode/qrcode.js",
+			"img/coun.png",
+			"order_detail.html",
+			"img/city.png",
+			"css/funTms.css",
+			"js/jquery.min.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/weui.min.css",
+			"js/cookie_util.js",
+			"img/order.png"
+		],
+		"refer": [
+			"order_detail.html"
+		]
+	},
+	"take_photos.html": {
+		"resources": [
+			"js/takePhoto.js",
+			"css/funTms.css",
+			"js/jquery.min.js",
+			"css/weui.min.css",
+			"js/cookie_util.js",
+			"css/top_bottom.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/mui.js",
+			"js/mui.min.js"
+		]
+	}
+}

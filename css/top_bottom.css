@@ -1,0 +1,7 @@
+.choose_city p,.choose_point p{
+	text-align:center;
+}
+.weui-tabbar span{
+	display: inline-block;
+	position: relative;
+}

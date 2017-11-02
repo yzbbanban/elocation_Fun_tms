@@ -30,7 +30,9 @@
 			"img/order.png",
 			"img/Blockbox.png",
 			"img/Selectionbox.png",
-			"order_detail.html"
+			"order_detail.html",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"order_detail.html"
@@ -49,10 +51,12 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"js/cookie_util.js",
-			"order_List.html"
+			"order_List.html",
+			"allocated_order.html"
 		],
 		"refer": [
-			"order_List.html"
+			"order_List.html",
+			"allocated_order.html"
 		]
 	},
 	"allocated_order.html": {

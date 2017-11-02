@@ -74,10 +74,10 @@ function getCarDetail(orderNum, weixinId) {
 			//SetCookie("WeChatID", jsCar[0].WeChatID, 2);
 			//SetCookie("IPNO", jsCar[0].IPNO, 2);
 			//			console.log(getCookie("UserName")+"："+getCookie("UserPho"));
-			//			console.log("1.success");
+//						console.log("1.success");
 		},
 		error: function() {
-			alert("车辆信息获取失败,请检查网络");
+			alert("车辆信息获取失败,请检查网络!");
 			return;
 			//console.log("1.error");
 		}
@@ -195,7 +195,10 @@ function setOrderList(codeResult) {
 		}
 
 		//城市以及配送点筛选
-		var jsFilter = getCookie("cityJs");
+		
+		var jsFilter = localStorage.getItem("cityJs");
+
+		console.log("ban---->"+jsFilter);
 		if(jsFilter != "" && jsFilter != null) {
 			//alert(jsFilter);
 			//生成的城市字符串

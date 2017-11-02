@@ -8,13 +8,25 @@
 		<link rel="stylesheet" href="css/weui.min.css" />
 		<link rel="stylesheet" href="css/top_bottom.css" />
 		<link rel="stylesheet" href="css/funTms.css" />
-		
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script src="js/getOrderList.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/cookie_util.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/getCityList.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/orderDiversion.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/completeOrder.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init()
+			mui.plusReady(function() {
+				var old_back = mui.back;
+				mui.back = function() {
+					//alert(1)
+					$(location).attr('href', '');
+				}
+			});
+		</script>
+		</script>
 		<script type="text/javascript">
 			$(function() {
 				$("#city_list").hide();
@@ -27,7 +39,11 @@
 	</head>
 
 	<body>
-		<div class="page" style="position: absolute; top: 0;right: 0;bottom: 0;left: 0;">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-btn mui-btn-link mui-pull-right"><span class="mui-icon mui-icon mui-icon-gear"></span></a>
+			<h1 class="mui-title">订单</h1>
+		</header>
+		<div class="page" style="position: absolute; top: 0;right: 0;bottom: 0;left: 0;margin-top: 50px;">
 			<div class="page__bd" style="height: 100%;">
 				<div class="weui-tab">
 					<div class="weui-navbar">
@@ -134,7 +150,7 @@
 				});
 			})
 		</script>
-		
+
 	</body>
 
 </html>

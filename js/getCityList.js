@@ -1,21 +1,21 @@
 function getCity() {
-//	console.log("getCity");
+	//	console.log("getCity");
 	$("#city_list").show();
 	$("#order_list").hide();
-	
-	var cities=Window.cities+"";
+
+	var cities = Window.cities + "";
 	setCity(cities);
-	
+
 }
 
 function setCity(cities) {
-	console.log("cities--： "+cities);
+	console.log("cities--： " + cities);
 	//获取城市列表
 	var cityListDetail = $("#city_list_detail");
 	//重新加载清空界面内容
 	cityListDetail.html("");
 	var sCity = "";
-	var cities=cities.split(",");
+	var cities = cities.split(",");
 	//	var cityResult = JSON.parse(cities);
 	//				alert(cityResult.result.length);
 	for(var i = 0; i < cities.length; i++) {
@@ -23,7 +23,7 @@ function setCity(cities) {
 		//		var cityId = cities[i].cityId;
 		//					console.log(city);
 		sCity = getSCity(city);
-		console.log("scity: "+city);
+		console.log("scity: " + city);
 		var $sC = $(sCity);
 		$sC.data("city", city);
 		//		$sC.data("cityId", cityId);
@@ -35,19 +35,19 @@ function setCity(cities) {
 }
 
 function getDiction() {
-//	console.log("getDiction");
+	//	console.log("getDiction");
 	$("#city_list").show();
 	$("#order_list").hide();
-	var deliveryStopNames=Window.deliveryStopNames+"";
+	var deliveryStopNames = Window.deliveryStopNames + "";
 	setDiction(deliveryStopNames);
 }
 
 function setDiction(deliveryStopNames) {
-	console.log("deliveryStopNames： "+deliveryStopNames);
+	console.log("deliveryStopNames： " + deliveryStopNames);
 	var cityListDetail = $("#city_list_detail");
 	cityListDetail.html("");
-	var deliveryStopNames=deliveryStopNames.split(",")
-//	console.log("deliveryStopNames: "+deliveryStopNames[0]);
+	var deliveryStopNames = deliveryStopNames.split(",")
+	//	console.log("deliveryStopNames: "+deliveryStopNames[0]);
 	var sCity = "";
 	//	var cityResult = JSON.parse(deliveryStopNames);
 	//				alert(cityResult.result.length);
@@ -71,7 +71,8 @@ function setDiction(deliveryStopNames) {
 
 function setCityList() {
 	//清除筛选内容
-	Window.cityJs="";
+	localStorage.setItem("cityJs", "");
+
 	if(0 == $("#city_list input:checked").length) { //没选择城市或配送点
 		alert("请选择城市或者配送点");
 	} else { //选择则拼接为json格式，并保存到订单中
@@ -86,7 +87,7 @@ function setCityList() {
 		});
 		js = js.substring(0, js.lastIndexOf(","));
 		js += "]}";
-		Window.cityJs=js
+		localStorage.setItem("cityJs", js);
 		location.reload();
 	}
 }

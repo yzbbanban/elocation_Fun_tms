@@ -196,7 +196,8 @@
 				"resources": [
 					"js/mui.min.js",
 					"css/mui.min.css",
-					"order_List.html"
+					"order_List.html",
+					"fonts/mui.ttf"
 				],
 				"refer": [
 					"order_detail.html"
@@ -225,7 +226,8 @@
 					"img/Selectionbox.png",
 					"order_detail.html",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"carSetting.html"
 				],
 				"refer": [],
 				"priority": 0
@@ -283,6 +285,17 @@
 					"js/mui.min.js",
 					"js/getImg.js",
 					"take_photos.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"carSetting.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"order_List.html",
+					"img/BG.png"
 				],
 				"refer": [],
 				"priority": 0

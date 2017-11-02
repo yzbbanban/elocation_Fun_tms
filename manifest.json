@@ -277,7 +277,9 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"js/mui.js",
-					"js/mui.min.js"
+					"js/mui.min.js",
+					"js/getImg.js",
+					"take_photos.html"
 				],
 				"refer": [],
 				"priority": 0

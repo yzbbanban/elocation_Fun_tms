@@ -10,9 +10,21 @@
 		<link rel="stylesheet" href="css/top_bottom.css" />
 		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/cookie_util.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/takePhoto.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init()
+			mui.plusReady(function() {
+				var old_back = mui.back;
+				mui.back = function() {
+					//alert(1)
+					javascript :history.back(-1);
 
+				}
+			});
+		</script>
 	</head>
 
 	<body>
@@ -40,15 +52,18 @@
 						</div>
 						<div class="weui-uploader__bd">
 							<ul class="weui-uploader__files" id="uploaderFiles">
+								
 							</ul>
 							<div class="weui-uploader__input-box" id="text1">
-								<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple/>
+								<input id="uploaderInput" class="weui-uploader__input imageup" type="button" multiple/>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
+		<script src="js/getImg.js" type="text/javascript" charset="utf-8"></script>
 		<div id="exception_reason" class="weui-cells weui-cells_form" >
 			<div class="weui-cell">
 				<div class="weui-cell__bd">
@@ -74,35 +89,8 @@
 		<input type="hidden" id="orderStatus" />
 		<script type="text/javascript">
 			$(function() {
-				var tmpl = '<li class="weui-uploader__file"><img id="cImg" alt=""  width="77px" height="77px" src="#url#"/></li>',
-					$gallery = $("#gallery"),
-					$galleryImg = $("#galleryImg"),
-					$uploaderInput = $("#uploaderInput"),
-					$uploaderFiles = $("#uploaderFiles");
-
-				$uploaderInput.on("change", function(e) {
-					var src, url = window.URL || window.webkitURL || window.mozURL,
-						files = e.target.files;
-					for(var i = 0, len = files.length; i < len; ++i) {
-						var file = files[i];
-
-						if(url) {
-							src = url.createObjectURL(file);
-						} else {
-							src = e.target.result;
-						}
-						$("#text1").hide();
-						$uploaderFiles.append($(tmpl.replace('#url#', src)));
-					}
-				});
-				$uploaderFiles.on("click", "img", function() {
-					$galleryImg.attr("src", this.getAttribute("src"));
-					$gallery.fadeIn(100);
-				});
-				$gallery.on("click", function() {
-
-					$gallery.fadeOut(100);
-				});
+				//alert("ss");
+				
 			});
 		</script>
 		<div class="weui-tabbar weui-footer weui-footer_fixed-bottom">
@@ -118,18 +106,8 @@
 				<a href="#" id="uploadData" class="weui-btn weui-btn_primary">确认</a>
 			</div>
 		</div>
-		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" charset="utf-8">
-			mui.init()
-			mui.plusReady(function() {
-				var old_back = mui.back;
-				mui.back = function() {
-					//alert(1)
-					javascript :history.back(-1);
-
-				}
-			});
-		</script>
+		
+		
 	</body>
 
 </html>
